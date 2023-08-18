@@ -1,0 +1,15 @@
+const express=require('express')
+const app = express()
+var cors = require('cors')
+const { routes } = require('./routes')
+const { default: mongoose } = require('mongoose')
+require('dotenv').config() 
+mongoose.connect(process.env.MONGOURL).then(()=>console.log("mongoose is connected...."))
+.catch((e)=>{console.log("mongose is not connected")})
+app.use(express.json())
+app.use(cors())
+app.use('/',routes)
+
+app.listen(process.env.PORT,()=>{
+    console.log(`running at ${process.env.PORT}`)
+})
