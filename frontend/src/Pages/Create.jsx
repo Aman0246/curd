@@ -8,6 +8,7 @@ import { storage } from '../Firebase/firebase'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 const Mainwrapper = styled(Box)({
     display: 'flex',
     justifyContent: 'center'
@@ -36,11 +37,13 @@ export default function Create() {
 
     }, [imageUpload])
 
-    let formData = new FormData()
-    formData.append('dpUrl', imageUrl)
-    formData.append('name', inputs.name)
-    formData.append('bio', inputs.bio)
-    const handleSubmit = () => {
+    // let formData = new FormData()
+    // formData.append('dpUrl', imageUrl)
+    // formData.append('name', inputs.name)
+    // formData.append('bio', inputs.bio)
+
+    const handleSubmit = async() => {
+        await axios.post('/',{name:inputs.name,bio:inputs.bio,dpUrl:imageUrl})
     }
     return (
         <Mainwrapper>

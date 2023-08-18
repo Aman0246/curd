@@ -30,7 +30,7 @@ export default function UserCard() {
         <Link to={"/edit"}>
           <Button size="small">Edit</Button>
         </Link>
-        <Button size="small">Delete</Button>
+        <Button sx={{color:'red'}} size="small">Delete</Button>
       </CardActions>
     </Card>
   );
