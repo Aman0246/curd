@@ -7,9 +7,17 @@ const getallusers = async (req, res) => {
     res.status(200).send({ status: true, message: "All Users", data: data });
   } catch (error) {}
 };
+const getOneusers = async (req, res) => {
+  try {
+    let data = await usermodel.findOne({_id:req.params.id});
+  if(!data) return res.send({status:false,message:'no use found'})
+    res.status(200).send({ status: true, message: "Oneusers", data: data });
+  } catch (error) {}
+};
 const createUser = async (req, res) => {
-  let { name, bio, dpUrl } = req.body;
-  if (!name || !bio || !dpUrl)
+  console.log(req.body)
+  let { name, bio} = req.body;
+  if (!name || !bio )
     return res.status(400).send({ status: false, message: "Empty Fields" });
   let data = await usermodel.create({ ...req.body });
   res.status(200).send({ status: true, message: "User Created", data: data });
@@ -27,4 +35,4 @@ const deleteUser = async (req, res) => {
   res.status(200).send({ status: true, message: "User Deleted", data: user });
 };
 
-module.exports = { createUser, updateUser, deleteUser, getallusers };
+module.exports = { createUser, updateUser, deleteUser, getallusers,getOneusers };
