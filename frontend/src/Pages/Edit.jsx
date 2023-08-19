@@ -62,23 +62,7 @@ export default function Edit() {
             }
          })
     }
-    const divStyles = {
-        border: '1px solid #e0e0e0',
-        position: 'relative',
-        width: '25%', // Default width
-        borderRadius: '10px',
-        padding: '20px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        padding: '8px',
-    
-        '@media (max-width: 932px)': {
-            width: '100%',
-          background:'red' // Adjust width for screens up to 932px wide,
-          
-        },
-      };
+
     return (
 
         extractdata ? 
