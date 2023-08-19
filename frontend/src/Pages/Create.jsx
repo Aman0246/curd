@@ -55,7 +55,7 @@ export default function Create() {
     return (
         <Mainwrapper>
             
-            <motion.div  initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} style={{'@media (max-width: 932px)':{width: '100%'}, border: '1px solid #e0e0e0',position:'relative', width:'50%', borderRadius: '10px',padding:"20px" ,display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '8px' }}>
+            <motion.div  initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} style={{'@media (max-width: 932px)':{width: '100%'}, border: '1px solid #e0e0e0',position:'relative', width:'50%', borderRadius: '10px',padding:"20px" ,display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                 <Link to={'/'}>
                 <Box sx={{position:'absolute',left:5,top:5}}><ArrowBackIcon/> </Box></Link>
                 <Box sx={{ fontSize: '30px',fontWeight:600 }}> Create user</Box>
