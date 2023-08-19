@@ -31,17 +31,17 @@ export default function Create() {
     
     useEffect(() => {
        
-        if (imageUpload) {
              setloader(true)
+        if (imageUpload) {
             const imgRef = ref(storage, `DisplayProfile/${imageUpload?.name + new Date()}`)
             uploadBytes(imgRef, imageUpload).then((e) => {
                 getDownloadURL(imgRef).then((url) => {
                     setimageurl(url)
-                    setloader(false)
                 })
             })
             
         }
+                    setloader(false)
 
     }, [imageUpload])
     const handleSubmit = async() => {
