@@ -30,6 +30,7 @@ export default function Create() {
     }
     
     useEffect(() => {
+        setloader(true)
         if (imageUpload) {
             const imgRef = ref(storage, `DisplayProfile/${imageUpload?.name + new Date()}`)
             uploadBytes(imgRef, imageUpload).then((e) => {
@@ -37,6 +38,7 @@ export default function Create() {
                     setimageurl(url)
                 })
             })
+            setloader(false)
         }
 
     }, [imageUpload])
