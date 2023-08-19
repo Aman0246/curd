@@ -64,7 +64,7 @@ export default function Create() {
                 <Box sx={{position:'absolute',left:5,top:5}}><ArrowBackIcon/> </Box></Link>
                 <Box sx={{ fontSize: '30px',fontWeight:600 }}> Create user</Box>
                 <label htmlFor="imgInputLabel" title="profile image">
-                    {imageUrl ? <img style={{ width: '15rem', height: '15rem', borderRadius: '50%', cursor: 'pointer' }} src={imageUrl && imageUrl} alt="Loading.." /> : <AccountCircleSharpIcon sx={{'@media (max-width: 932px)':{width: '10rem'} ,width: '15rem', height: '15rem', borderRadius: '50%', cursor: 'pointer' }} />}
+                    {imageUrl ? <img style={{'@media (max-width: 932px)':{width: '10rem'}, width: '15rem', height: '15rem', borderRadius: '50%', cursor: 'pointer' }} src={imageUrl && imageUrl} alt="Loading.." /> : <AccountCircleSharpIcon sx={{'@media (max-width: 932px)':{width: '10rem'} ,width: '15rem', height: '15rem', borderRadius: '50%', cursor: 'pointer' }} />}
                 </label>
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                     <TextField id="standard-basic" onChange={handleInputs} label="Name" name='name' variant="standard" />
