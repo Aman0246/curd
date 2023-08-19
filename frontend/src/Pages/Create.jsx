@@ -37,9 +37,10 @@ export default function Create() {
             uploadBytes(imgRef, imageUpload).then((e) => {
                 getDownloadURL(imgRef).then((url) => {
                     setimageurl(url)
+                    setloader(false)
                 })
             })
-            setloader(false)
+            
         }
 
     }, [imageUpload])
