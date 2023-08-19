@@ -10,7 +10,8 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import './a.css';
 const Mainwrapper = styled(Box)({
     display: 'flex',
     justifyContent: 'center'
@@ -30,15 +31,16 @@ export default function Create() {
     }
     
     useEffect(() => {
-        setloader(true)
+      
         if (imageUpload) {
             const imgRef = ref(storage, `DisplayProfile/${imageUpload?.name + new Date()}`)
+            setloader(true)
             uploadBytes(imgRef, imageUpload).then((e) => {
                 getDownloadURL(imgRef).then((url) => {
                     setimageurl(url)
+                    setloader(false)
                 })
             })
-            setloader(false)
         }
 
     }, [imageUpload])
@@ -62,7 +64,7 @@ export default function Create() {
                 <Box sx={{position:'absolute',left:5,top:5}}><ArrowBackIcon/> </Box></Link>
                 <Box sx={{ fontSize: '30px',fontWeight:600 }}> Create user</Box>
                 <label htmlFor="imgInputLabel" title="profile image">
-                    {imageUrl ? <img style={{ width: '15rem', height: '15rem', borderRadius: '50%', cursor: 'pointer' }} src={imageUrl && imageUrl} alt="Loading.." /> : <AccountCircleSharpIcon sx={{'@media (max-width: 932px)':{width: '10rem'} ,width: '15rem', height: '15rem', borderRadius: '50%', cursor: 'pointer' }} />}
+                    {imageUrl ? <img  className="image"src={imageUrl && imageUrl} alt="Loading.." /> : <AccountCircleSharpIcon sx={{'@media (max-width: 932px)':{width: '10rem'} ,width: '15rem', height: '15rem', borderRadius: '50%', cursor: 'pointer' }} />}
                 </label>
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                     <TextField id="standard-basic" onChange={handleInputs} label="Name" name='name' variant="standard" />

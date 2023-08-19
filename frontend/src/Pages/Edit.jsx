@@ -10,7 +10,8 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import axios from 'axios'
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import './a.css';
 const Mainwrapper = styled(Box)({
     display: 'flex',
     justifyContent: 'center'
@@ -73,20 +74,21 @@ export default function Edit() {
         padding: '8px',
     
         '@media (max-width: 932px)': {
-          width: '100%',
-          background:'red' // Adjust width for screens up to 932px wide
+            width: '100%',
+          background:'red' // Adjust width for screens up to 932px wide,
+          
         },
       };
     return (
 
         extractdata ? 
         <Mainwrapper>
-            <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }}  style={divStyles}>
+            <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} className='divStyles' >
                 <Box sx={{ fontSize: '30px', fontWeight: 600 }}>Edit user</Box>
                 <Link to={'/'}>
                     <Box sx={{ position: 'absolute', left: 5, top: 5 }}><ArrowBackIcon /> </Box></Link>
                 <label htmlFor="imgInputLabel" title="profile image">
-                    {extracturl ? <img style={{ width: '15rem', height: '15rem', borderRadius: '50%', cursor: 'pointer' }} src={extracturl && extracturl} alt="Loading.." /> : <AccountCircleSharpIcon sx={{'@media (max-width: 932px)':{width: '10rem'} ,width: '15rem', height: '15rem', borderRadius: '50%', cursor: 'pointer' }} />}
+                    {extracturl ? <img  className="imageE" src={extracturl && extracturl} alt="Loading.." /> : <AccountCircleSharpIcon sx={{'@media (max-width: 932px)':{width: '10rem'} ,width: '15rem', height: '15rem', borderRadius: '50%', cursor: 'pointer' }} />}
                 </label>
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                     <TextField id="standard-basic" value={extractname} onChange={(e)=>setextractname(e.target.value)} label="Name" name='name' variant="standard" />
